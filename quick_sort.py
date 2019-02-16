@@ -26,6 +26,6 @@ def quick_sort(unsorted_list):
 
 def main():
     unsorted_list = [8, 6, 7, 5, 3, 0, 9, 4, 1, 2]
-    print quick_sort(unsorted_list)
+    print(quick_sort(unsorted_list))
 
 main()
