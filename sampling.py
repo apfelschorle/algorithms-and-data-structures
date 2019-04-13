@@ -10,8 +10,7 @@ def sampling(original_list, sampling_num):
 
         if index < sampling_num:
             sampling_list[index] = original_list[j]
-    return sampling_list
-            
+    return sampling_list       
 
 def main():
     original_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
