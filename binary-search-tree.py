@@ -20,19 +20,19 @@ class treeNode:
             return treeNode(val)
         return node
 
-    def minValueNode(self, node): 
+    def min(self, node): 
         current = node 
         while(current.left is not None): 
             current = current.left  
       
         return current  
 
-    def deleteNode(self, root, val): 
+    def delete(self, root, val): 
         if root:
             if val < root.val: 
-                root.left = self.deleteNode(root.left, val) 
+                root.left = self.delete(root.left, val) 
             elif(val > root.val): 
-                root.right = self.deleteNode(root.right, val) 
+                root.right = self.delete(root.right, val) 
             else: 
                   
                 if root.left is None: 
@@ -45,9 +45,9 @@ class treeNode:
                     root = None
                     return temp 
           
-                temp = self.minValueNode(root.right) 
+                temp = self.min(root.right) 
                 root.val = temp.val 
-                root.right = self.deleteNode(root.right, temp.val)
+                root.right = self.delete(root.right, temp.val)
         else:
             return root
       
@@ -65,13 +65,13 @@ root = root.insert(root, 9)
 root.inorder(root) 
   
 print("\nDelete 6")
-root = root.deleteNode(root, 6)
+root = root.delete(root, 6)
 root.inorder(root) 
   
 print("\nDelete 3")
-root = root.deleteNode(root, 3)
+root = root.delete(root, 3)
 root.inorder(root) 
   
 print("\nDelete 9")
-root = root.deleteNode(root, 9)
+root = root.delete(root, 9)
 root.inorder(root)
