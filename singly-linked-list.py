@@ -1,51 +1,42 @@
 class listNode(object):
     def __init__(self, data, node = None):
         self.data = data
-        self.next_node = node
-
-    def get_next(self):
-        return self.next_node
-
-    def set_next(self, node):
-        self.next_node = node
+        self.next = node
 
     def get_data(self):
         return self.data
 
-    def set_data(self, data):
-        self.data = data
+    def get_next(self):
+        return self.next
+
+    def set_next(self, node):
+        self.next = node
 
 class LinkedList(object):
-    def __init__(self, root = None):
-        self.root = root
-        self.size = 0
+    def __init__(self):
+        self.head = None
 
-    def get_size(self):
-        return self.size
-
-    def add(self, data):
-        new_node = listNode(data, self.root)
-        self.root = new_node
-        self.size += 1
+    def insert(self, data):
+        new_node = listNode(data, self.head)
+        self.head = new_node
 
     def remove(self, data):
-        this_node = self.root
+        this_node = self.head
         prev_node = None
         while this_node:
             if this_node.get_data() == data:
                 if prev_node:
                     prev_node.set_next(this_node.get_next())
                 else:
-                    self.root = this_node.get_next()
-                self.size -= 1
+                    self.head = this_node.get_next()
                 return True
             else:
                 prev_node = this_node
                 this_node = this_node.get_next()
         return False
 
-    def findIndex(self, data):
-        this_node = self.root
+    def getIndex(self, data):
+        this_node = self.head
         counter = 0
         while this_node:
             if this_node.get_data() == data:
@@ -55,32 +46,59 @@ class LinkedList(object):
         return None
 
     def traverse(self):
-        temp = self.root
+        temp = self.head
         while(temp):
             print('{0} '.format(temp.data), end='')
             temp = temp.get_next()
 
     def reverse(self):
         previous = None
-        current = self.root
+        current = self.head
         while(current is not None):
             next_node = current.get_next()
             current.next_node = previous
             previous = current
-            current = next_node
-        self.root = previous
+            current = next_node      
+        self.head = previous
+        if current is not None:
+            print('{0} '.format(current), end='')
 
-myList = LinkedList()
-myList.add(5)
-myList.add(8)
-myList.add(12)
-myList.traverse()
-print()
-print(myList.findIndex(12))
-myList.reverse()
-print(myList.traverse())
-print(myList.findIndex(12))
-myList.remove(8)
-print(myList.traverse())
-print(myList.remove(12))
-print(myList.remove(13))
+if __name__ == '__main__':
+    ## Initialisation
+    singlyLinkedList = LinkedList()
+
+    ## Insert
+    singlyLinkedList.insert(5)
+    singlyLinkedList.insert(8)
+    singlyLinkedList.insert(12)
+
+    ## First traverse
+    print('-- Traversal')
+    singlyLinkedList.traverse()
+    print()
+
+    ## First indexing
+    print('-- Where is the index of the integer 12 in the list?')
+    print(singlyLinkedList.getIndex(12))
+
+    ## Reversal and second traverse
+    print('-- Reversal')
+    singlyLinkedList.reverse()
+    singlyLinkedList.traverse()
+    print()
+
+    ## Second indexing
+    print('-- Where is the index of the integer 12 in the list now?')
+    print(singlyLinkedList.getIndex(12))
+
+    ## Removal from the list
+    print('-- Removing 8 from the list')
+    singlyLinkedList.remove(8)
+    singlyLinkedList.traverse()
+    print()
+
+    ## Removal indicator
+    print('-- 12 is removed from the list?')
+    print(singlyLinkedList.remove(12))
+    print('-- 13 is removed from the list?')
+    print(singlyLinkedList.remove(13))
