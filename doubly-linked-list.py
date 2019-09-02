@@ -72,8 +72,9 @@ class LinkedList(object):
         while(current is not None):
             next_node = current.get_next()
             current.next_node = previous
+            current.prev_node = next_node
             previous = current
-            current = next_node      
+            current = next_node
         self.head = previous
         if current is not None:
             print('{0} '.format(current), end='')
