@@ -1,6 +1,6 @@
 class maxHeap:
     def __init__(self, items = []):
-        super().__init__()
+        ##super().__init__()
         self.heap = [0]
         for i in items:
             self.heap.append(i)
@@ -10,7 +10,7 @@ class maxHeap:
         self.heap.append(data)
         self.__floatUp(len(self.heap) - 1)
 
-    def peek():
+    def peek(self):
         if self.heap[1]:
             return self.heap[1]
         else:
@@ -52,4 +52,4 @@ class maxHeap:
 
 m = maxHeap([95, 3, 21])
 m.push(10)
-print(str(m.heap[0:len(m.heap)]))
+print(str(m.heap[1:len(m.heap)]))
