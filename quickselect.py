@@ -12,9 +12,7 @@ def partition(sortlist, left, right, pivotIndex):
     sortlist[right], sortlist[storeIndex] = sortlist[storeIndex], sortlist[right]
     return storeIndex
 
-def select(sortlist, k):
-    left = 0
-    right = len(sortlist) - 1
+def select(sortlist, left, right, k):
     
     while True:
         if left == right:
@@ -31,6 +29,7 @@ def select(sortlist, k):
 
 def main():
     sortlist = [8, 9, 7, 6, 5, 4, 2, 3, 1]
-    print(select(sortlist, 8))
+    print(select(sortlist, 0, len(sortlist) - 1, 8))
 
 main()
+
