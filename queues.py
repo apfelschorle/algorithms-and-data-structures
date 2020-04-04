@@ -34,7 +34,7 @@ print()
 print('What is the stack now?')
 print(Queuing.peek())
 
-print('Removing an element (FIFO)...')
+print('Removing an element... (FIFO)')
 Queuing.dequeue()
 print('... done.')
 print()
