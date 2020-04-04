@@ -33,3 +33,11 @@ print()
 
 print('What is the stack now?')
 print(Stacking.peek())
+
+print('Removing an element (LIFO)...')
+Stacking.pop()
+print('... done.')
+print()
+
+print('What is the stack now?')
+print(Stacking.peek())
