@@ -5,4 +5,6 @@ The topics at hand will be:
 - Stacks
 - Queues
 - Sorts
+- Linked lists
+- Hash tables
 - Others
