@@ -7,4 +7,3 @@ The topics at hand will be:
 - Sorts
 - Linked lists
 - Hash tables
-- Others
